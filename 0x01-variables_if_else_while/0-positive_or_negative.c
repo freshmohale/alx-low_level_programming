@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * main - print if the number is positive, negative or zero
+ * main - print if the number is positive, zero or negative
  *
  * Description: using the main function
  * this program prints "Programming is positive, zero or negative
@@ -13,7 +13,7 @@ int main(void)
 {
 int n;
 
-strand(time(0));
+srand(time(0));
 n = rand() - RAND_MAX / 2;
   /* your code goes here */
 if (n > 0)
