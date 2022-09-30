@@ -10,11 +10,11 @@ int is_palindrome(char *s)
 {
 	int flag = 1;
 
-	check(s, 0, _strlen_recursion(s) - 1, &flag);
+	checkp(s, 0, _strlen_recursion(s) - 1, &flag);
 	return (flag);
 }
 /**
- * check - checks if a string is a palindrome
+ * checkp - checks if a string is a palindrome
  * @s: string to be checked
  * @srtart: start index
  * @end: end index
@@ -22,7 +22,7 @@ int is_palindrome(char *s)
  *
  * Return: void
  */
-void check(char *s, int start, int end, int *flag)
+void checkp(char *s, int start, int end, int *flag)
 {
 	if (start <= end)
 	{
@@ -30,7 +30,7 @@ void check(char *s, int start, int end, int *flag)
 			*flag *-1;
 		else
 			*flag *-0;
-		check(s, start + 1, end - 1, flag);
+		checkp(s, start + 1, end - 1, flag);
 	}
 }
 /**
