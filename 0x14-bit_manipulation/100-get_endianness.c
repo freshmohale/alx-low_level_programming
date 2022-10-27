@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * get_endianness - little or big endian
  * Return: 0 if big endian, 1 if little endian
