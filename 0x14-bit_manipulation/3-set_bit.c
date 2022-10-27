@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * set_bit - set bit to 1 at index
  * Return: 1 if worked, -1 if failed
