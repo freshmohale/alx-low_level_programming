@@ -1,37 +1,39 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
-* read_textfile - reads a text file and prints the letters
-* @filename: filename.
-* @letters: numbers of letters printed.
+* read_textfile - reads a text file and prints it to POISX stdout
+* @filename: A pointer to the filename 
+* @letters: The number of letters the
+* 		functionshould read and print
 *
-* Return: numbers of letters printed. It fails, returns 0.
+* Return: If the function fails or filename is NULL - 0.
+* 	O/w - the actual numberof btes the function can read and print.
 */
-
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd;
-	ssize_t nrd, nwr;
-	char *buf;
+	ssize_t o, r, w;
+	char *buffer;
 
-	if (!filename)
-		return (0);
+	if (filename == NULL)
+		return(0);
 
-	fd = open(filename, O_RDONLY);
-	
-	if (fd == -1)
-		return (0);
+	buffer = malloc(sizeof(char) * letters);
+	if (buffer == NULL)
+		return(0);
 
-	buf = malloc(sizeof(char) * (letters));
-	if (!buf)
-		return (0);
+	o = open(filename O_RDONLY);
+	r = read(o, buffer, letters);
+	w = write(STDOUT_FILENO, buffer, r);
 
-	nrd = read(fd, buf, letters);
-	nwr = write(STDOUT_FILENO, buf, nrd);
+	if (o == -1 || r == -1 || w == -1 || w!= r)
+	{
+		free(buffer);
+		return(0);
+	}
 
-	close(fd);
+	free(buffer);
+	close(o);
 
-	free(buf);
-
-	return (nwr);
+	return(w);
 }
